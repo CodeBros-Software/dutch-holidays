@@ -330,22 +330,22 @@ class DutchHolidays
         $sector = $this->activeSector;
 
         $candidates = [
-            HolidayKey::NewYear => [CarbonImmutable::create($year, 1, 1), true],
-            HolidayKey::GoodFriday => [$easter->subDays(2), false],
-            HolidayKey::Easter => [$easter, true],
-            HolidayKey::EasterMonday => [$easter->addDay(), true],
-            HolidayKey::Kingsday => [$kingsday, true],
-            HolidayKey::LiberationDay => [CarbonImmutable::create($year, 5, 5), $year % 5 === 0],
-            HolidayKey::Ascension => [$easter->addDays(39), true],
-            HolidayKey::Pentecost => [$easter->addDays(49), true],
-            HolidayKey::PentecostMonday => [$easter->addDays(50), true],
-            HolidayKey::Christmas => [CarbonImmutable::create($year, 12, 25), true],
-            HolidayKey::BoxingDay => [CarbonImmutable::create($year, 12, 26), true],
+            [HolidayKey::NewYear, CarbonImmutable::create($year, 1, 1), true],
+            [HolidayKey::GoodFriday, $easter->subDays(2), false],
+            [HolidayKey::Easter, $easter, true],
+            [HolidayKey::EasterMonday, $easter->addDay(), true],
+            [HolidayKey::Kingsday, $kingsday, true],
+            [HolidayKey::LiberationDay, CarbonImmutable::create($year, 5, 5), $year % 5 === 0],
+            [HolidayKey::Ascension, $easter->addDays(39), true],
+            [HolidayKey::Pentecost, $easter->addDays(49), true],
+            [HolidayKey::PentecostMonday, $easter->addDays(50), true],
+            [HolidayKey::Christmas, CarbonImmutable::create($year, 12, 25), true],
+            [HolidayKey::BoxingDay, CarbonImmutable::create($year, 12, 26), true],
         ];
 
         $holidays = new HolidayCollection();
 
-        foreach ($candidates as $key => [$date, $officialDefault]) {
+        foreach ($candidates as [$key, $date, $officialDefault]) {
             $official = $sector->policyFor($key)->resolve($officialDefault);
 
             $name = $key === HolidayKey::Kingsday

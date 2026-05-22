@@ -34,9 +34,9 @@ class ListHolidaysCommand extends Command
             return self::SUCCESS;
         }
 
-        $this->info(sprintf(
-            'Feestdagen %d — sector: %s%s',
-            $year,
+        $this->info(sprintf('Feestdagen %d', $year));
+        $this->line(sprintf(
+            'Sector: %s%s',
             $instance->activeSector()->name,
             $showAll ? ' (incl. niet-officiële)' : ''
         ));

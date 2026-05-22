@@ -14,13 +14,13 @@ it('filters official holidays only', function () {
     $official = $all->official();
 
     expect($all->count())->toBe(11);
-    expect($official->count())->toBe(10); // Goede Vrijdag eraf
+    expect($official->count())->toBe(9); // Goede Vrijdag + Bevrijdingsdag (niet-lustrumjaar) eraf
 });
 
 it('filters unofficial holidays only', function () {
     $unofficial = $this->holidays->forYear(2026)->unofficial();
 
-    expect($unofficial->count())->toBe(1);
+    expect($unofficial->count())->toBe(2); // Goede Vrijdag + Bevrijdingsdag in niet-lustrumjaar
     expect($unofficial->first()->key)->toBe(HolidayKey::GoodFriday);
 });
 
@@ -60,6 +60,6 @@ it('maps to date => name array', function () {
 it('extracts dates as Collection', function () {
     $dates = $this->holidays->officialHolidays(2026)->dates();
 
-    expect($dates)->toHaveCount(10);
+    expect($dates)->toHaveCount(9);
     expect($dates->first())->toBeInstanceOf(\Carbon\CarbonImmutable::class);
 });

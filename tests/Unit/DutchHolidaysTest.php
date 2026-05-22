@@ -35,15 +35,15 @@ describe('basic holiday retrieval', function () {
         $easter = $this->holidays->forYear(2026)->byKey(HolidayKey::Easter);
         $easterMonday = $this->holidays->forYear(2026)->byKey(HolidayKey::EasterMonday);
 
-        expect($easterMonday->date->diffInDays($easter->date))->toBe(1);
+        expect($easter->date->diffInDays($easterMonday->date))->toBe(1.0);
     });
 
     it('places Ascension 39 days after Easter and Pentecost 49 days after', function () {
         $year = $this->holidays->forYear(2026);
         $easter = $year->byKey(HolidayKey::Easter);
 
-        expect($year->byKey(HolidayKey::Ascension)->date->diffInDays($easter->date))->toBe(39);
-        expect($year->byKey(HolidayKey::Pentecost)->date->diffInDays($easter->date))->toBe(49);
+        expect($easter->date->diffInDays($year->byKey(HolidayKey::Ascension)->date))->toBe(39.0);
+        expect($easter->date->diffInDays($year->byKey(HolidayKey::Pentecost)->date))->toBe(49.0);
     });
 });
 
