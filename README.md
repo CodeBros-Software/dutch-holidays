@@ -1,4 +1,4 @@
-# Dutch Holidays voor Laravel
+# Nederlandse feestdagen voor Laravel
 
 Nederlandse feestdagen en werkdagberekeningen voor Laravel, met **sector- en cao-profielen** zodat je per klant of branche kunt configureren welke dagen vrij zijn.
 

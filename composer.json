@@ -1,5 +1,5 @@
 {
-    "name": "codebros/dutch-holidays",
+    "name": "codebros-nl/dutch-holidays",
     "description": "Nederlandse feestdagen en werkdagberekeningen voor Laravel, met cao-/sector-profielen.",
     "version": "1.0.0",
     "type": "library",
@@ -22,12 +22,12 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/support": "^11.0|^12.0",
-        "illuminate/console": "^11.0|^12.0",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "illuminate/console": "^11.0|^12.0|^13.0",
         "nesbot/carbon": "^2.72|^3.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^9.0|^10.0",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
         "pestphp/pest": "^3.0",
         "pestphp/pest-plugin-laravel": "^3.0"
     },
