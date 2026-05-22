@@ -24,7 +24,7 @@ Geen externe dependencies voor de holiday-berekeningen — alles is intern via h
 ## Installatie
 
 ```bash
-composer require codebros/dutch-holidays
+composer require codebros-nl/dutch-holidays
 ```
 
 Publiceer optioneel de config:
